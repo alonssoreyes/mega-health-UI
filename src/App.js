@@ -6,7 +6,6 @@ import Usuarios from './Components/Usuarios';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
-  const estaLogeado = false;
   return (
     <Router>
       <div className="main-wrapper">
