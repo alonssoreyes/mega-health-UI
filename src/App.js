@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Login from "./Components/Login/Login.jsx";
 import Usuarios from './Components/Usuarios';
+import Departamentos from './Components/Departamentos'
+import Equipos from './Components/Equipos'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
                 <Navbar />
                 <div className="page-content">
                   <h1>Equipos</h1>
+                  <Equipos/>
                 </div>
               </Layout>
             </Route>
@@ -41,6 +44,7 @@ function App() {
                 <Navbar />
                 <div className="page-content">
                   <h1>Departamentos</h1>
+                  <Departamentos/>
                 </div>
               </Layout>
             </Route>

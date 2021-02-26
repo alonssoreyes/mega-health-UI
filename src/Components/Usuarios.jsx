@@ -1,4 +1,5 @@
 import React, {useEffect}  from 'react';
+import AddUsuario from './AddUsuario';
 
 
 
@@ -9,7 +10,8 @@ const Usuarios = () => {
     }, [])
 
     return(
-        <h1>Usuarios</h1>
+        
+        <AddUsuario/>
     )
 
 }
