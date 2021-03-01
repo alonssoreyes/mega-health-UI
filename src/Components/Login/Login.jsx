@@ -4,25 +4,6 @@ import logo from "../../assets/images/logo.png";
 import imageLogin from "../../assets/images/image-login.jpg";
 import axios from 'axios';
 const Login = () => {
-  
-
-  useEffect(() => {
-    axios.get('/api/usuarios').then(res => alert(res.data))
-  }, []);
-
-  function enviarDatos(e){
-    e.preventDefault();
-    console.log(e.target);
-    const email  = e.target.email.value;
-    const password = e.target.password.value;
-
-    axios.post('/api/usuarios',{
-      email:email,
-      password:password
-    } )
-    .then(res => alert(res.data.password))
-    .catch(err => console.error(err))
-  }
 
   return (
     <div class="page-wrapper full-page">
@@ -41,7 +22,7 @@ const Login = () => {
                     <h5 class="text-muted font-weight-normal mb-4">
                       Welcome back! Log in to your account.
                     </h5>
-                    <form class="forms-sample" onSubmit={enviarDatos}>
+                    <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input
