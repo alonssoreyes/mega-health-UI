@@ -87,6 +87,10 @@ const AddEquipos = function () {
                         <input type="text" class="form-control" id="nserie" name="nserie"  autocomplete="of" placeholder="Numero de Serie"></input>
                     </div>
                     <div class="form-group">
+                    <label for="modelo" > Modelo :</label>
+                         <input type="text" class="form-control" name="modelo" id="modelo"  autocomplete="of" placeholder="Modelo"></input>
+                    </div>
+                    <div class="form-group">
                     <label for="ubicacion">  Ubicación :</label>
 
                         <select class="form-control" id="ubicacion" name="ubicaciones" autocomplete="of">
