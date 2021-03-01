@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '../../assets/images/logo.png';
 import './Sidebar.css';
-import {Link} from 'react-router-dom';
+import {Link, useHistory, useLocation} from 'react-router-dom';
+
+
 
 const Sidebar = () => {
+    const location = useLocation().pathname;
+    const history = useHistory();
+    const [url, setUrl] = useState(history.location.pathname);
+
+
+    useEffect(() => {
+
+        if(url !== location){
+            setUrl(location)
+        }
+    }, [history.location.pathname])
+
     return (
         <nav class="sidebar mb-5">
             <div class="sidebar-header">
@@ -26,19 +40,19 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li class="nav-item nav-category">Modulos</li>
-                    <li class="nav-item">
+                    <li class={`nav-item ${url === "/usuarios" && 'active'}`}>
                         <Link to="/usuarios" class="nav-link">
                         <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Usuarios</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
+                    <li class={`nav-item ${url === "/equipos" && 'active'}`}>
                         <Link to="/equipos" class="nav-link">
                         <i class="link-icon" data-feather="monitor"></i>
                         <span class="link-title">Equipos</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
+                    <li class={`nav-item ${url === "/departamentos" && 'active'}`}>
                         <Link to="/departamentos" class="nav-link">
                         <i class="link-icon" data-feather="layers"></i>
                         <span class="link-title">Departamentos</span>
