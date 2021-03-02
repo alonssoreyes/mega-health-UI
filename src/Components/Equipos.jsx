@@ -10,8 +10,9 @@ const Equipos = () => {
     }, [])
 
     return(
-        
-        <AddEquipos/>
+         
+
+ <AddEquipos/>
     )
 
 }
