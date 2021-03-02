@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const AddEquipos = function () {
+const AddEquiposModal = function () {
 
 
     return (
@@ -129,13 +129,17 @@ const AddEquipos = function () {
                         <textarea class="form-control" Id="descripcion" name="descripcion" rows="10" cols="40" placeholder="Escribe Aqui" autocomplete="of"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="activo" > El equipo esta Activo:</label>
-                        <select class="form-control" name="activo" id="activo" autocomplete="of">
-
-                            <option value="si">Si</option>
-                            <option value="no">No</option>
-
-                        </select>
+                            
+                            <label for="activo" > Estatus del equipo:</label>
+                            
+                    </div>
+                    <div class="form-group">
+                            <input type="radio" id="active" name="gender" value="act"/>
+                            <label for="male"> Activo</label>
+                    </div>
+                    <div class="form-group">
+                            <input type="radio" id="inactive" name="gender" value="inact"/>
+                            <label for="female"> Inactivo</label>
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
@@ -148,4 +152,4 @@ const AddEquipos = function () {
 
 }
 
-export default AddEquipos;
+export default AddEquiposModal;
