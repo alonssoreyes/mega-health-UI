@@ -1,5 +1,5 @@
 import React, {useEffect}  from 'react';
-import AddEquipos from './AddEquipos';
+import AddEquiposModal from './AddEquiposModal';
 
 
 
@@ -12,7 +12,7 @@ const Equipos = () => {
     return(
          
 
- <AddEquipos/>
+ <AddEquiposModal/>
     )
 
 }
