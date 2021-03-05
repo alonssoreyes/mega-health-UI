@@ -3,8 +3,12 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Login from "./Components/Login/Login.jsx";
 import Usuarios from './Components/Usuarios';
-import Departamentos from './Components/Departamentos'
+import Sucursal from './Components/Sucursal'
 import Equipos from './Components/Equipos'
+import Marca from './Components/Marca'
+import TiposdeEquipo from './Components/TiposdeEquipos'
+import Categoria from './Components/Categoria'
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -38,12 +42,39 @@ function App() {
                 </div>
               </Layout>
             </Route>
-            <Route exact path="/departamentos">
+            <Route exact path="/sucursal">
               <Layout>
                 <Navbar />
                 <div className="page-content">
-                  <h1>Departamentos</h1>
-                  <Departamentos/>
+                  <h1>Sucursal</h1>
+                  <Sucursal/>
+                </div>
+              </Layout>
+            </Route>
+            <Route exact path="/Marca">
+              <Layout>
+                <Navbar />
+                <div className="page-content">
+                  <h1>Marca</h1>
+                  <Marca/>
+                </div>
+              </Layout>
+            </Route>
+            <Route exact path="/tiposdeequipo">
+              <Layout>
+                <Navbar />
+                <div className="page-content">
+                  <h1>Tipos de Equipos</h1>
+                  <TiposdeEquipo/>
+                </div>
+              </Layout>
+            </Route>
+                <Route exact path="/Categoria">
+                <Layout>
+                <Navbar />
+                <div className="page-content">
+                  <h1>Categorias</h1>
+                  <Categoria/>
                 </div>
               </Layout>
             </Route>

@@ -138,7 +138,7 @@ const AddEquipos = function () {
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mr-2">Aceptar</button>
+                    <button type="submit" class="btn btn-primary mr-2">Agregar</button>
                     <button class="btn btn-light">Cancelar</button>
                 </form>
             </div>
