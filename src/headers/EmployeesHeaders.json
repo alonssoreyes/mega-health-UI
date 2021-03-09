@@ -25,5 +25,9 @@
     {
         "property":"status",
         "value":"Estado"
+    },
+    {
+        "property": "actions",
+        "value":"Acciones"
     }
 ]
