@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/mega-health-ui/static/css/main.93f91e90.chunk.css",
+    "main.js": "/mega-health-ui/static/js/main.56fb3d5b.chunk.js",
+    "main.js.map": "/mega-health-ui/static/js/main.56fb3d5b.chunk.js.map",
+    "runtime-main.js": "/mega-health-ui/static/js/runtime-main.26864f0f.js",
+    "runtime-main.js.map": "/mega-health-ui/static/js/runtime-main.26864f0f.js.map",
+    "static/js/2.1dbec936.chunk.js": "/mega-health-ui/static/js/2.1dbec936.chunk.js",
+    "static/js/2.1dbec936.chunk.js.map": "/mega-health-ui/static/js/2.1dbec936.chunk.js.map",
+    "index.html": "/mega-health-ui/index.html",
+    "static/css/main.93f91e90.chunk.css.map": "/mega-health-ui/static/css/main.93f91e90.chunk.css.map",
+    "static/js/2.1dbec936.chunk.js.LICENSE.txt": "/mega-health-ui/static/js/2.1dbec936.chunk.js.LICENSE.txt",
+    "static/media/Login.css": "/mega-health-ui/static/media/image-login.51d99beb.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26864f0f.js",
+    "static/js/2.1dbec936.chunk.js",
+    "static/css/main.93f91e90.chunk.css",
+    "static/js/main.56fb3d5b.chunk.js"
+  ]
+}
