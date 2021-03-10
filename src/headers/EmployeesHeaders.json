@@ -1,5 +1,9 @@
 [
     {
+        "property":"img",
+        "value":"Imagen"
+    },
+    {
         "property":"name",
         "value":"Nombre"
     },
@@ -13,10 +17,6 @@
     {
         "property":"email",
         "value":"Email"
-    },
-    {
-        "property":"img",
-        "value":"Imagen"
     },
     {
         "property":"role",

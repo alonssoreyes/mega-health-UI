@@ -9,6 +9,7 @@ const Usuarios = () => {
     const [users, setUsers] = useState(null);
     const [showModal,setShowModal] = useState(false);
     const [userSelected, setUserSelected] = useState(null);
+    const [openModal, setOpenModal] = useState(false);
     useEffect(()=> {        
         getUsers();
     }, []);
@@ -41,7 +42,11 @@ const Usuarios = () => {
         <>
 
             <h3>Empleados</h3>
-
+            <Modal center open={openModal} onClose={() => setOpenModal(false)}>
+                <div>
+                    <h1>Hola</h1>
+                </div>
+            </Modal>
             <div className="row justify-content-lg-end justify-content-md-end my-2">
                 <div className={"col-lg-2 justify-content-end "}>
                     <button className="btn btn-primary" data-toggle="modal" data-target="#addEmpleadoModal" onClick={() => setShowModal(true)}>

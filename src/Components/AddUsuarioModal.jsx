@@ -62,67 +62,7 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
   };
 
   const handleInputChange = ({ target }) => {
-    switch (target.name) {
-      case "name":
-        if (target.value === "") {
-          //Logica del alert
-          setErrors({ ...errors, name: "El nombre es obligatorio" });
-        } else {
-          delete errors["name"];
-          setErrors(errors);
-        }
-
-        break;
-      case "lastName":
-        if (target.value === "") {
-          //Logica del alert
-          setErrors({ ...errors, lastName: "Los apellidos son obligatorios" });
-        } else {
-          delete errors["lastName"];
-          setErrors(errors);
-
-          
-        }
-        break;
-
-      case "email":
-        const reg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-
-        if (target.value === "") {
-          //Logica del alert
-          setErrors({ ...errors, emptyEmail: "El Email es obligatorio" });
-        } else if (!reg.test(target.value)) {
-          setErrors({ ...errors, invalidEmail: "Debe ser un email correcto" });
-        } else {
-          delete errors["emptyEmail"];
-
-          delete errors["invalidEmail"];
-        }
-        break;
-
-      case "password":
-        if (target.value === "" || target.value.length < 8) {
-          setErrors({
-            ...errors,
-            password:
-              "El password es obligatorio y debe contener mas de 8 caracteres",
-          });
-        } else {
-          delete errors["password"];
-        }
-        break;
-      case "confirmPassword":
-        const password = document.querySelector("#password").value;
-        if (password !== target.value) {
-          setErrors({
-            ...errors,
-            confirmPassword: "Las contraseñas deben coincidir",
-          });
-        } else {
-          delete errors["confirmPassword"];
-        }
-        break;
-    }
+    
   };
 
   return (
