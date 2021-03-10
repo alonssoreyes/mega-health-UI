@@ -20,8 +20,12 @@ const Usuarios = () => {
     }, [])
 
     const getUsers = async() => {
-        const users = await axios.get('/api/usuarios');
-        setUsers(users.data);
+        try {
+            const users = await axios.get('/api/usuarios');
+            setUsers(users.data);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 
