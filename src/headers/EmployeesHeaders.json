@@ -1,0 +1,33 @@
+[
+    {
+        "property":"img",
+        "value":"Imagen"
+    },
+    {
+        "property":"name",
+        "value":"Nombre"
+    },
+    {
+        "property":"lastName",
+        "value":"Apellidos"
+    },{
+        "property":"alias",
+        "value":"Alias"
+    },
+    {
+        "property":"email",
+        "value":"Email"
+    },
+    {
+        "property":"role",
+        "value":"Role"
+    },
+    {
+        "property":"status",
+        "value":"Estado"
+    },
+    {
+        "property": "actions",
+        "value":"Acciones"
+    }
+]

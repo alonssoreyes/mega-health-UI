@@ -1,0 +1,14 @@
+.auth-left-wrapper{
+    background-image: url('../../assets/images/image-login.jpg') !important;
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media only screen and (max-width:768px){
+    .auth-left-wrapper{
+        background-size:150px !important;
+        background-repeat: no-repeat;
+        background-image: url('../../assets/images/logo.png') !important;
+    }
+}
