@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mega-health-UI/static/css/main.d8c9afe0.chunk.css",
-    "main.js": "/mega-health-UI/static/js/main.d358b0df.chunk.js",
-    "main.js.map": "/mega-health-UI/static/js/main.d358b0df.chunk.js.map",
+    "main.js": "/mega-health-UI/static/js/main.3462773e.chunk.js",
+    "main.js.map": "/mega-health-UI/static/js/main.3462773e.chunk.js.map",
     "runtime-main.js": "/mega-health-UI/static/js/runtime-main.875a68fe.js",
     "runtime-main.js.map": "/mega-health-UI/static/js/runtime-main.875a68fe.js.map",
     "static/js/2.1dbec936.chunk.js": "/mega-health-UI/static/js/2.1dbec936.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.875a68fe.js",
     "static/js/2.1dbec936.chunk.js",
     "static/css/main.d8c9afe0.chunk.css",
-    "static/js/main.d358b0df.chunk.js"
+    "static/js/main.3462773e.chunk.js"
   ]
 }
