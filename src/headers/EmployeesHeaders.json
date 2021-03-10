@@ -1,5 +1,9 @@
 [
     {
+        "property":"img",
+        "value":"Imagen"
+    },
+    {
         "property":"name",
         "value":"Nombre"
     },
@@ -15,15 +19,15 @@
         "value":"Email"
     },
     {
-        "property":"img",
-        "value":"Imagen"
-    },
-    {
         "property":"role",
         "value":"Role"
     },
     {
         "property":"status",
         "value":"Estado"
+    },
+    {
+        "property": "actions",
+        "value":"Acciones"
     }
 ]
