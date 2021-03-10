@@ -1,4 +1,5 @@
 {
+  "homepage": "https://alonssoreyes.github.io/mega-health-UI/",
   "name": "mega-health",
   "version": "0.1.0",
   "private": true,
@@ -44,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"https://mega-health-api.herokuapp.com/"
 }
