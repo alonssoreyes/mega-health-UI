@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "mega-health",
   "version": "0.1.0",
   "private": true,
@@ -45,5 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://mega-health-api.herokuapp.com/"
+  "proxy":"https://mega-health-api.herokuapp.com:3001"
 }
