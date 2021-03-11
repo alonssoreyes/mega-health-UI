@@ -8,6 +8,8 @@ import Equipos from './Components/Equipos'
 import Marca from './Components/Marca'
 import TiposdeEquipo from './Components/TiposdeEquipos'
 import Categoria from './Components/Categoria'
+import ConsultaEquipo from './Components/ConsultaEquipo'
+import Responsivas from './Components/Responsivas'
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -29,6 +31,13 @@ function App() {
               <Layout>
                 <Navbar />
                 <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="usuarios">Empleados</li>
+                </ol>
+                </nav>
                   <Usuarios/>
                 </div>
               </Layout>
@@ -37,6 +46,13 @@ function App() {
               <Layout>
                 <Navbar />
                 <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="equipos">Equipos</li>
+                </ol>
+                </nav>
                   <h1>Equipos</h1>
                   <Equipos/>
                 </div>
@@ -46,6 +62,13 @@ function App() {
               <Layout>
                 <Navbar />
                 <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="sucursal">Sucursal</li>
+                </ol>
+                </nav>
                   <h1>Sucursal</h1>
                   <Sucursal/>
                 </div>
@@ -55,6 +78,13 @@ function App() {
               <Layout>
                 <Navbar />
                 <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="Marca">Marca</li>
+                </ol>
+                </nav>
                   <h1>Marca</h1>
                   <Marca/>
                 </div>
@@ -64,6 +94,13 @@ function App() {
               <Layout>
                 <Navbar />
                 <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="tiposdeequipo">Tipo de Equipo</li>
+                </ol>
+                </nav>
                   <h1>Tipos de Equipos</h1>
                   <TiposdeEquipo/>
                 </div>
@@ -73,8 +110,47 @@ function App() {
                 <Layout>
                 <Navbar />
                 <div className="page-content">
-                  <h1>Categorias</h1>
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Modulos</a></li>
+                <li class="breadcrumb-item active" aria-current="Categoria">Categoria</li>
+                </ol>
+                </nav>
+                <h1>Categoria</h1>
                   <Categoria/>
+                </div>
+              </Layout>
+            </Route>
+            <Route exact path="/ConsultarEquipo">
+                <Layout>
+                <Navbar />
+                <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Consultas</a></li>
+                <li class="breadcrumb-item active" aria-current="ConsultarEquipo">Consultar Equipo</li>
+                </ol>
+                </nav>
+                <h1>Consultar Equipo</h1>
+                  <ConsultaEquipo/>
+                </div>
+              </Layout>
+            </Route>
+            <Route exact path="/Responsivas">
+                <Layout>
+                <Navbar />
+                <div className="page-content">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Consultas</a></li>
+                <li class="breadcrumb-item active" aria-current="Responsivas">Responsivas</li>
+                </ol>
+                </nav>
+                  <h1>Responsivas</h1>
+                  <Responsivas/>
                 </div>
               </Layout>
             </Route>

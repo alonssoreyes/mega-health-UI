@@ -5,8 +5,11 @@ const AddSucursal = function () {
 
     return (
         <div class="card-body">
-            <h6 class="card-title">Agregar Sucursal</h6>
+            <h6 class="card-title"></h6>
             <div className="col-md-6">
+            <div class="alert alert-primary" role="alert">
+            Agregar Sucursal
+            </div>
                 <form class="forms-sample">
                     <div class="form-group">
                         <label for="cnv">Nombre del CNV :</label>
