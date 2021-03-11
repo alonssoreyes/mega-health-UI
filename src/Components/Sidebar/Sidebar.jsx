@@ -76,6 +76,19 @@ const Sidebar = () => {
                         <span class="link-title">Catergorias</span>
                         </Link>
                     </li>
+                    <li class="nav-item nav-category">Consultas</li>
+                    <li class={`nav-item ${url === "/ConsultarEquipo" && 'active'}`}>
+                            <Link to="/ConsultarEquipo" class="nav-link">
+                            <i class="link-icon" data-feather="search"></i>
+                            <span class="link-title">Consultar Equipo</span>
+                        </Link>
+                    </li>
+                    <li class={`nav-item ${url === "/responsivas" && 'active'}`}>
+                            <Link to="/responsivas" class="nav-link">
+                            <i class="link-icon" data-feather="file-text"></i>
+                            <span class="link-title">Responsivas</span>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>

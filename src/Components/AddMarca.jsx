@@ -5,8 +5,11 @@ const AddMarca = function () {
 
     return (
         <div class="card-body">
-            <h6 class="card-title">Agregar Marca</h6>
+            <h6 class="card-title"></h6>
             <div className="col-md-6">
+            <div class="alert alert-primary" role="alert">
+            Agregar Marca
+            </div>
                 <form class="forms-sample">
                     <div class="form-group">
                         <label for="marca">Nombre de la Marca :</label>

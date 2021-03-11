@@ -5,8 +5,11 @@ const AddTiposdeEquipos = function () {
 
     return (
         <div class="card-body">
-            <h6 class="card-title">Agregar nuevo Tipo de Equipo</h6>
+            <h6 class="card-title"></h6>
             <div className="col-md-6">
+            <div class="alert alert-primary" role="alert">
+            Agregar nuevo Tipo de Equipo
+            </div>
                 <form class="forms-sample">
                     <div class="form-group">
                         <label for="t.equipo">Tipo de Equipos :</label>
