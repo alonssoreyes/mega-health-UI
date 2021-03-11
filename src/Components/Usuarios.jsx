@@ -21,6 +21,7 @@ const Usuarios = () => {
 
     const getUsers = async() => {
         try {
+            console.log(axios.defaults.baseURL);
             const users = await axios.get('/api/usuarios');
             setUsers(users.data);
         } catch (error) {
@@ -67,7 +68,7 @@ const Usuarios = () => {
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>
-                : <Table headers={EmployeeHeaders} data={users} setUserSelected={setUserSelected} deleteEmployee={deleteEmployee}/>}
+                : <Table headers={EmployeeHeaders} data={users} onSelectRow={setUserSelected} onDeleteRow={deleteEmployee}/>}
 
 
             {showModal ? <AddUsuarioModal onSuccess={setShowModal} getUsers={getUsers}/> : null}
