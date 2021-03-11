@@ -21,7 +21,8 @@ const Usuarios = () => {
 
     const getUsers = async() => {
         try {
-            const users = await axios.get('https://mega-health-api.herokuapp.com/api/usuarios');
+            console.log(axios.defaults.baseURL);
+            const users = await axios.get('/api/usuarios');
             setUsers(users.data);
         } catch (error) {
             console.log(error);
