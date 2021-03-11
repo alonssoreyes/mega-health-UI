@@ -5,8 +5,11 @@ const AddCategoria = function () {
 
     return (
         <div class="card-body">
-            <h6 class="card-title">Agregar nuevo Categoria de Equipos</h6>
+            <h6 class="card-title"></h6>
             <div className="col-md-6">
+            <div class="alert alert-primary" role="alert">
+            Agregar Categoria de Equipos
+            </div>
                 <form class="forms-sample">
                     <div class="form-group">
                         <label for="categoria">Agrege la Categoria :</label>
