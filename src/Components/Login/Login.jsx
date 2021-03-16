@@ -3,7 +3,35 @@ import "./Login.css";
 import logo from "../../assets/images/logo.png";
 import imageLogin from "../../assets/images/image-login.jpg";
 import axios from 'axios';
-const Login = () => {
+import Swal from "sweetalert2";
+const Login = ({onLogin}) => {
+
+  const handleLogin = ev => { 
+    ev.preventDefault();
+    const email = ev.target.email.value;
+    const password = ev.target.password.value;
+
+    
+    axios.post('/api/auth/login', {
+      email,
+      password
+    })
+      .then(res => { 
+        localStorage.setItem("MEGA-HEALTH-TOKEN", res.data.token);
+        window.location.href = '/home'
+        // onLogin(res.data.user)
+      })
+      .catch(err => {
+        Swal.fire({
+          title:err.response.data.msg,
+          icon:'error',
+          timer:1500,
+          showConfirmButton:false,
+          position:'top-end'
+        })
+      })
+
+  }
 
   return (
     <div class="page-wrapper full-page">
@@ -20,11 +48,11 @@ const Login = () => {
                 <div class="col-md-8 pl-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
                     <h5 class="text-muted font-weight-normal mb-4">
-                      Welcome back! Log in to your account.
+                      Bienvenido, inicia sesion.
                     </h5>
-                    <form class="forms-sample">
+                    <form class="forms-sample" onSubmit={handleLogin}>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1">Email</label>
                         <input
                           type="email"
                           class="form-control"
@@ -34,7 +62,7 @@ const Login = () => {
                         />
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                        <label for="exampleInputPassword1">Contraseña</label>
                         <input
                           type="password"
                           class="form-control"
@@ -44,33 +72,14 @@ const Login = () => {
                           name="password"
                         />
                       </div>
-                      <div class="form-check form-check-flat form-check-primary">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" />
-                          Remember me
-                        </label>
-                      </div>
                       <div class="mt-3">
                         <button
                           type="submit"
                           class="btn btn-primary mr-2 mb-2 mb-md-0"
                         >
-                          Login
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0"
-                        >
-                          <i
-                            class="btn-icon-prepend"
-                            data-feather="twitter"
-                          ></i>
-                          Login with twitter
+                          Entrar
                         </button>
                       </div>
-                      <a href="register.html" class="d-block mt-3 text-muted">
-                        Not a user? Sign up
-                      </a>
                     </form>
                   </div>
                 </div>
