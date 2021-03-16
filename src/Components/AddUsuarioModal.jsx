@@ -9,11 +9,26 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
     setRoleSelected(target.value);
   };
 
+  const capitalize = (word) => {
+    let convertedPhrase = "";
+    let wordArr = word.split("");
+
+    let letraMayuscula = wordArr[0];
+
+    letraMayuscula = letraMayuscula.toUpperCase();
+    
+    wordArr[0] = letraMayuscula;
+
+    const newWord = wordArr.join("");
+    return newWord
+
+  }
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-    const name  = ev.target.name.value;
-    const lastName = ev.target.lastName.value;
+    let name  = ev.target.name.value;
+    let lastName = ev.target.lastName.value;
     const email = ev.target.email.value;
     const password = ev.target.password.value;
     const confirmPassword = ev.target.confirmPassword.value;
@@ -30,16 +45,20 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
         return;
     }
     //Generate alias
-    const alias = name.split(" ")[0] + " " + lastName.split(" ")[0];
+    let alias = name.split(" ")[0] + " " + lastName.split(" ")[0];
+
+    //Capitalize name
+    name = capitalize(name);
+    lastName = capitalize(lastName);
+    alias = capitalize(alias);
 
     //Request
-
     try{
         const response = await axios.post('/api/usuarios', {name,lastName,email,alias,password,confirmPassword,role: ev.target.role.value});
         if(response){
             getUsers();
+            ev.form.reset();
         }
-        console.log(response);
     }
     catch(err){
         console.log(err);
@@ -107,7 +126,6 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
                         autoComplete="off"
                         placeholder="Nombre"
                         name="name"
-                        onChange={handleInputChange}
                         required
                       />
                     </div>

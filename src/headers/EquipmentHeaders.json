@@ -1,0 +1,46 @@
+[
+    {
+        "property":"type",
+        "value":"Tipo de equipo"
+    },
+    {
+        "property":"assigned_by",
+        "value":"Asignado por"
+    },
+    {
+        "property":"assigned_to",
+        "value":"Asignado a"
+    },
+    {
+        "property":"department",
+        "value":"Departamento"
+    },
+    {
+        "property":"sucursal",
+        "value":"Sucursal"
+    },
+    {
+        "property":"category",
+        "value":"Categoria"
+    },
+    {
+        "property":"brand",
+        "value":"Marca"
+    },
+    {
+        "property":"serial_number",
+        "value":"Numerod de serie"
+    },
+    {
+        "property":"model",
+        "value":"Modelo"
+    },
+    {
+        "property":"location",
+        "value":"Ubicacion"
+    },
+    {
+        "property":"active",
+        "value":"Activo"
+    }
+]

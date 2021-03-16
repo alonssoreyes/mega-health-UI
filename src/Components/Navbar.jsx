@@ -1,6 +1,6 @@
 
 
-const Navbar = () => {
+const Navbar = ({user, onLogout}) => {
     return (
         <nav class="navbar mb-5">
             <a href="#" class="sidebar-toggler">
@@ -190,8 +190,8 @@ const Navbar = () => {
                                     <img src="https://via.placeholder.com/80x80" alt="" />
                                 </div>
                                 <div class="info text-center">
-                                    <p class="name font-weight-bold mb-0">Amiah Burton</p>
-                                    <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                                    <p class="name font-weight-bold mb-0">{user.name}</p>
+                                    <p class="email text-muted mb-3">{user.email}</p>
                                 </div>
                             </div>
                             <div class="dropdown-body">
@@ -199,25 +199,18 @@ const Navbar = () => {
                                     <li class="nav-item">
                                         <a href="pages/general/profile.html" class="nav-link">
                                             <i data-feather="user"></i>
-                                            <span>Profile</span>
+                                            <span>Perfil</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:;" class="nav-link">
-                                            <i data-feather="edit"></i>
-                                            <span>Edit Profile</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:;" class="nav-link">
-                                            <i data-feather="repeat"></i>
-                                            <span>Switch User</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:;" class="nav-link">
+                                    <li class="nav-item" style={{cursor:'pointer'}}>
+                                        <a onClick={() => {
+                                            localStorage.removeItem("MEGA-HEALTH-TOKEN");
+                                            onLogout(null);
+                                            window.location.href = "/login"
+
+                                        }} class="nav-link">
                                             <i data-feather="log-out"></i>
-                                            <span>Log Out</span>
+                                            <span>Cerrar sesión</span>
                                         </a>
                                     </li>
                                 </ul>
