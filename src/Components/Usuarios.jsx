@@ -6,13 +6,14 @@ import Modal from "react-responsive-modal";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ExportDataToExcel from './ExportDataToExcel';
-
+import EditUsuarioModal from './EditUsuarioModal';
 const Usuarios = ({ user }) => {
   const [users, setUsers] = useState(null);
   const [filteredUsers, setFilteredUsers] = useState(null);
 
   const [showModal, setShowModal] = useState(false);
   const [userSelected, setUserSelected] = useState(null);
+  const [showEditModal,setShowEditModal] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     document.title = "Usuarios - Mega Health";
@@ -57,36 +58,52 @@ const Usuarios = ({ user }) => {
   };
   const handleFilterChange = (ev) => {
     const status = ev.target.value;
+    const input = ev.target.name;
     let filteredEmployees = [];
-    if (status === "active") {
-      filteredEmployees = users.filter((user) => user.status === true);
-    }
+    switch(input){
+      case "filterEmployees":
+        if (status === "active") {
+          filteredEmployees = users.filter((user) => user.status === true);
+        }
+    
+        if (status === "inactive") {
+          filteredEmployees = users.filter((user) => user.status === false);
+        }
+        if (status === "0") {
+          filteredEmployees = users;
+        }
+        break;
+      
+      case "filterEmployeesByRole":
+        if (status === "ADMIN_ROLE") {
+          filteredEmployees = users.filter((user) => user.role === "ADMIN_ROLE");
+        }
+    
+        if (status === "AUDITOR_ROLE") {
+          filteredEmployees = users.filter((user) => user.role === "AUDITOR_ROLE");
+        }
+        if (status === "USER_ROLE") {
+          filteredEmployees = users.filter((user) => user.role === "USER_ROLE");
 
-    if (status === "inactive") {
-      filteredEmployees = users.filter((user) => user.status === false);
-    }
-    if (status === "0") {
-      filteredEmployees = users;
+        }
+        if (status === "0") {
+          filteredEmployees = users;
+
+        }
+        break;
     }
 
     setFilteredUsers(filteredEmployees);
   };
 
-  //Filter
-  const usuariosFiltrados =
-    users && users.filter((user) => user.status === true);
-
-  console.log(usuariosFiltrados);
-
-  //reduce
 
   return (
     <>
       <h3>Empleados</h3>
 
       <h6 className="mt-4 mb-2">Filtrar por: </h6>
-      <div className="row">
-        <div className="col-md-3">
+      <div className="row p-2">
+        <div className="col-md-3 my-2">
           <select name="filterEmployees" id="" onChange={handleFilterChange}>
             <option value="0" defaultValue>
               Status
@@ -97,8 +114,21 @@ const Usuarios = ({ user }) => {
             <option value="inactive">Inactivos</option>
           </select>
         </div>
+        <div className="col-md-3 my-2">
+          <select name="filterEmployeesByRole" id="" onChange={handleFilterChange}>
+            <option value="0" defaultValue>
+              Rol
+            </option>
+
+            <option value="ADMIN_ROLE">Administrador</option>
+
+            <option value="AUDITOR_ROLE">Auditor</option>
+            <option value="USER_ROLE">Empleado</option>
+
+          </select>
+        </div>
       </div>
-      <div className="row justify-content-lg-end justify-content-md-end mb-2">
+      <div className="row d-flex justify-content-around justify-content-md-end my-3">
           <button
             className="btn btn-primary mr-2"
             data-toggle="modal"
@@ -107,7 +137,7 @@ const Usuarios = ({ user }) => {
           >
             Agregar usuario
           </button>
-        <ExportDataToExcel  data={filteredUsers} headers={EmployeeHeaders} />
+        <ExportDataToExcel  data={filteredUsers} headers={EmployeeHeaders} fileName={"Empleados "} />
       </div>
       {!users ? (
         <div className={"row justify-content-center"}>
@@ -121,8 +151,11 @@ const Usuarios = ({ user }) => {
           data={filteredUsers}
           onSelectRow={setUserSelected}
           onDeleteRow={deleteEmployee}
+          setShowEditModal={setShowEditModal}
         />
       )}
+
+      {showEditModal ? <EditUsuarioModal onSuccess={setShowEditModal} getUsers={getUsers} data={userSelected} setUserSelected={setUserSelected}/> : null}
 
       {showModal ? (
         <AddUsuarioModal onSuccess={setShowModal} getUsers={getUsers} />

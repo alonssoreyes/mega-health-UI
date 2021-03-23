@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-//import background from "../../assets/images/Fondo_Login.";
+//import background from "../../../../images/Fondo_Login.";
 
 
 const AddResponsivas = function () {
