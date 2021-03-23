@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Swal from 'sweetalert2';
-const AddUsuarioModal = ({onSuccess,getUsers}) => {
+import Swal from "sweetalert2";
+const AddUsuarioModal = ({ onSuccess, getUsers }) => {
   const [roleSelected, setRoleSelected] = useState("AUDITOR_ROLE");
   const [errors, setErrors] = useState({});
 
@@ -16,33 +16,37 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
     let letraMayuscula = wordArr[0];
 
     letraMayuscula = letraMayuscula.toUpperCase();
-    
+
     wordArr[0] = letraMayuscula;
 
     const newWord = wordArr.join("");
-    return newWord
-
-  }
+    return newWord;
+  };
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-    let name  = ev.target.name.value;
+    let name = ev.target.name.value;
     let lastName = ev.target.lastName.value;
     const email = ev.target.email.value;
-    const password = ev.target.password.value;
-    const confirmPassword = ev.target.confirmPassword.value;
+    let password ="";
+    let confirmPassword = "";
+    if(ev.target.password){
+       password = ev.target.password.value;
+       confirmPassword = ev.target.confirmPassword.value;
+    }
+    const image = ev.target.image.files[0];
 
-    if(Object.keys(errors).length > 0 ){
-        Swal.fire({
-            title:'Hay Errores',
-            position:'top-end',
-            icon:'error',
-            text:'Rellena los campos',
-            timer:1000
-        })
+    if (Object.keys(errors).length > 0) {
+      Swal.fire({
+        title: "Hay Errores",
+        position: "top-end",
+        icon: "error",
+        text: "Rellena los campos",
+        timer: 1000,
+      });
 
-        return;
+      return;
     }
     //Generate alias
     let alias = name.split(" ")[0] + " " + lastName.split(" ")[0];
@@ -52,37 +56,41 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
     lastName = capitalize(lastName);
     alias = capitalize(alias);
 
+    const formData = new FormData();
+    formData.append('name',name);
+    formData.append('lastName', lastName);
+    formData.append('email',email);
+    formData.append('password',password);
+    formData.append('alias',alias);
+    formData.append('image', ev.target.image.files[0]);
+    formData.append('role',ev.target.role.value)
+
+
     //Request
-    try{
-        const response = await axios.post('/api/usuarios', {name,lastName,email,alias,password,confirmPassword,role: ev.target.role.value});
-        if(response){
-            getUsers();
-            ev.form.reset();
-        }
+    try {
+      const response = await axios.post("/api/usuarios", formData);
+      if (response) {
+        getUsers();
+        ev.target.reset();
+        document.querySelector("#addEmpleadoModal").classList.remove("show");
+        document
+          .querySelector("#addEmpleadoModal")
+          .removeAttribute("aria-modal");
+        document
+          .querySelector("#addEmpleadoModal")
+          .setAttribute("aria-hidden", true);
+        document.querySelector("#addEmpleadoModal").style.display = "none";
+        document.getElementsByClassName("modal-backdrop")[0].remove();
+        document.querySelector("body").classList.remove("modal-open");
+        onSuccess(false);
+      }
+    } catch (err) {
+      console.log(err);
+      return;
     }
-    catch(err){
-        console.log(err);
-        return;
-    }
-
-    //
-    // Swal.fire({
-    //     title:'Se ha guardado al usuario',
-    //         position:'top-end',
-    //         icon:'success',
-    //         text:'Se ha guardado al usuario',
-    //         timer:1000
-    // })
-
-    document.querySelector('#addEmpleadoModal').style.display = 'none';
-    document.getElementsByClassName('modal-backdrop')[0].remove();
-    document.querySelector('body').classList.remove('modal-open');
-
   };
 
-  const handleInputChange = ({ target }) => {
-    
-  };
+  const handleInputChange = ({ target }) => {};
 
   return (
     <div
@@ -111,7 +119,11 @@ const AddUsuarioModal = ({onSuccess,getUsers}) => {
           <div className="modal-body">
             <div className="row">
               <div className="col-md-12">
-                <form className="forms-sample row" onSubmit={handleSubmit}>
+                <form
+                  className="forms-sample row"
+                  onSubmit={handleSubmit}
+                  encType="multipart/form-data"
+                >
                   <div className="col-md-6">
                     <div className="form-group mb-0">
                       <label htmlFor="exampleInputUsername1">Nombre</label>
