@@ -20,6 +20,7 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getToken, parseJwt } from "./helpers/token";
+import Widgets from "./Components/Widgets";
 require("dotenv").config(); // get env vars
 function App() {
   const [user, setUser] = useState(
@@ -46,6 +47,8 @@ function App() {
     settingUser();
   }, []);
 
+
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="main-wrapper">
@@ -54,15 +57,14 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
+
             {!user ? (
               <Redirect to="/login" />
             ) : (
               <Route exact path="/">
                 <Layout user={user}>
-                  <Navbar user={user} />
-                  <div className="page-content">
-                    <h1>Inicio</h1>
-                  </div>
+                  <Navbar user={user}  onLogout={setUser}/>
+                  <Widgets/>
                 </Layout>
               </Route>
             )}
@@ -99,7 +101,7 @@ function App() {
                 <Redirect to="/login" />
               ) : (
                 <Layout user={user}>
-                  <Navbar user={user} onLogout={setUser}/>
+                  <Navbar user={user} onLogout={setUser} />
                   <div className="page-content">
                     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
@@ -118,6 +120,7 @@ function App() {
                       </ol>
                     </nav>
                     <h1>Equipos</h1>
+
                     <Equipos />
                   </div>
                 </Layout>
@@ -183,7 +186,7 @@ function App() {
                 <Redirect to="/login" />
               ) : (
                 <Layout user={user}>
-                  <Navbar user={user} onLogout={setUser}/>
+                  <Navbar user={user} onLogout={setUser} />
                   <div className="page-content">
                     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
@@ -295,7 +298,7 @@ function App() {
               )}
             </Route>
             <Route path="/**">
-              <Redirect to={!user ? "/login" : "/"}/>
+              <Redirect to={!user ? "/login" : "/"} />
             </Route>
           </Switch>
         </div>

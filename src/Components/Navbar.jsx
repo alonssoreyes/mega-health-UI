@@ -182,12 +182,12 @@ const Navbar = ({user, onLogout}) => {
                     </li>
                     <li class="nav-item dropdown nav-profile">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://images-ext-1.discordapp.net/external/bwwClqssbXfUJlMMNV5ATyUVWfojIL8O-ZdSqLMhOng/%3F_nc_cat%3D101%26ccb%3D3%26_nc_sid%3D174925%26_nc_ohc%3DXAB0ict9918AX_6xw0E%26_nc_ht%3Dscontent.fgdl5-1.fna%26oh%3De4bf31e6585cab90c25b1420106a869d%26oe%3D6056A73D/https/scontent.fgdl5-1.fna.fbcdn.net/v/t31.0-8/16601900_1572790946066110_6526427790156253293_o.jpg?width=656&height=663" alt="userr" />
+                            <img src={user.imgPath} alt="userr" />
                         </a>
                         <div class="dropdown-menu" aria-labelledby="profileDropdown">
                             <div class="dropdown-header d-flex flex-column align-items-center">
                                 <div class="figure mb-3">
-                                    <img src="https://via.placeholder.com/80x80" alt="" />
+                                    <img src={user.imgPath} alt="" />
                                 </div>
                                 <div class="info text-center">
                                     <p class="name font-weight-bold mb-0">{user.name}</p>
@@ -203,10 +203,11 @@ const Navbar = ({user, onLogout}) => {
                                         </a>
                                     </li>
                                     <li class="nav-item" style={{cursor:'pointer'}}>
-                                        <a onClick={() => {
+                                        <a onClick={async(e) => {
+                                            e.preventDefault();
                                             localStorage.removeItem("MEGA-HEALTH-TOKEN");
-                                            onLogout(null);
-                                            window.location.href = "/login"
+                                             onLogout(null);
+                                            window.location.replace('/login')
 
                                         }} class="nav-link">
                                             <i data-feather="log-out"></i>

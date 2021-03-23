@@ -1,14 +1,18 @@
 [
     {
+        "property":"imgPath",
+        "value":"Imagen" 
+    },
+    {
         "property":"type",
         "value":"Tipo de equipo"
     },
     {
-        "property":"assigned_by",
+        "property":"assigned_by_name",
         "value":"Asignado por"
     },
     {
-        "property":"assigned_to",
+        "property":"assigned_to_name",
         "value":"Asignado a"
     },
     {
@@ -29,7 +33,7 @@
     },
     {
         "property":"serial_number",
-        "value":"Numerod de serie"
+        "value":"Numero de serie"
     },
     {
         "property":"model",
@@ -41,6 +45,10 @@
     },
     {
         "property":"active",
-        "value":"Activo"
+        "value":"Estado Actual"
+    },
+    {
+        "property":"actions",
+        "value":"Acciones"
     }
 ]
