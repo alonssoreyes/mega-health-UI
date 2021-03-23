@@ -12,3 +12,11 @@
         background-image: url('../../assets/images/logo.png') !important;
     }
 }
+
+.box {
+    background-image: url('../../assets/images/Fondo_Login.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+  }

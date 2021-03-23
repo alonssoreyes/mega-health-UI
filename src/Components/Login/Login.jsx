@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import logo from "../../assets/images/logo.png";
 import imageLogin from "../../assets/images/image-login.jpg";
+import fondo from "../../assets/images/Fondo_Login.png";
 import axios from 'axios';
 import Swal from "sweetalert2";
+
 const Login = ({onLogin}) => {
+
+
 
   const handleLogin = ev => { 
     ev.preventDefault();
@@ -34,7 +38,10 @@ const Login = ({onLogin}) => {
   }
 
   return (
-    <div class="page-wrapper full-page">
+
+       
+    <div class="box">
+    <a href="#" class="box"> </a>
       <div class="page-content d-flex align-items-center justify-content-center">
         <div class="row w-100 mx-0 auth-page">
           <div class="col-md-8 col-xl-6 mx-auto">
@@ -89,6 +96,7 @@ const Login = ({onLogin}) => {
         </div>
       </div>
     </div>
+    
   );
 };
 
