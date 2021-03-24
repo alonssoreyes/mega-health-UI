@@ -71,7 +71,7 @@ const Table = ({
                               </td>
                             ) : header.property === "imgPath" ? (
                               <img
-                                src={element[header.property] ? element[header.property] : defaultUser}
+                                src={element[header.property] ? `${process.env.REACT_APP_API_HOST || 'http://localhost:3001'}${element[header.property]}` : defaultUser}
                                 alt="Image default user"
                                 className="img-fluid rounded-circle text-align-center p-2"
                                 style={{ width: "80px", objectFit:'cover' }}
