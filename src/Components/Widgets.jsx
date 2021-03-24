@@ -10,14 +10,25 @@ import {
 } from "react-router-dom";
 const Widgets = () => {
   const [equipments, setEquipments] = useState(null);
+  const [users,setUsers] = useState(null);
   useEffect(() => {
     getEquipments();
+    getUsers();
   }, []);
 
   const getEquipments = async () => {
     try {
       const equipments = await axios.get("/api/equipos");
       setEquipments(equipments.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUsers = async () => {
+    try {
+      const users = await axios.get("/api/usuarios");
+      setUsers(users.data);
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +93,7 @@ const Widgets = () => {
           <div class="card">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-baseline">
-                <h6 class="card-title mb-0">Equipos asignados</h6>
+                <h6 class="card-title mb-0">Total de usuarios</h6>
                 <div class="dropdown mb-2">
                   <button
                     class="btn p-0"
@@ -100,32 +111,24 @@ const Widgets = () => {
                   >
                     <Link
                       class="dropdown-item d-flex align-items-center"
-                      to="/equipos"
+                      to="/usuarios"
                     >
                       <i data-feather="eye" class="icon-sm mr-2"></i>{" "}
                       <span class="">Ver</span>
                     </Link>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                      <i data-feather="download" class="icon-sm mr-2"></i>{" "}
-                      <span class="">Descargar</span>
-                    </a>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-6 col-md-12 col-xl-5">
                   <h3 class="mb-2">
-                    {equipments ? (
-                      equipments.length
-                    ) : (
+                    {users ? (
+                      users.length) : (
                       <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                       </div>
                     )}
                   </h3>
-                </div>
-                <div class="col-6 col-md-12 col-xl-7">
-                  <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
                 </div>
               </div>
             </div>
