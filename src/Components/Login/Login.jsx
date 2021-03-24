@@ -22,21 +22,23 @@ const Login = ({onLogin}) => {
         // onLogin(res.data.user)
       })
       .catch(err => {
-        Swal.fire({
-          title:err.response.data.msg,
-          icon:'error',
-          timer:1500,
-          showConfirmButton:false,
-          position:'top-end'
-        })
+        // Swal.fire({
+        //   title:JSON.stringify(err),
+        //   icon:'error',
+        //   timer:1500,
+        //   showConfirmButton:false,
+        //   position:'top-end'
+        // })
+
+        alert(JSON.stringify(err))
       })
 
   }
 
   return (
-    <div class="page-wrapper full-page">
+    <div class="page-wrapper full-page vh-100">
       <div class="page-content d-flex align-items-center justify-content-center">
-        <div class="row w-100 mx-0 auth-page">
+        <div class="row w-100 mx-0  auth-page" style={{marginTop:'10%'}}>
           <div class="col-md-8 col-xl-6 mx-auto">
             <div class="card">
               <div class="row">

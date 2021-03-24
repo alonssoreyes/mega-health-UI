@@ -7,6 +7,7 @@ const Table = ({
   onSelectRow,
   onDeleteRow,
   setShowEditModal,
+  user
 }) => {
   return (
     <div className="row">
@@ -18,7 +19,12 @@ const Table = ({
                 <thead>
                   <tr>
                     {headers.map((header) => {
-                      return <th scope="col">{header.value}</th>;
+
+                      if(header.property==="actions" && user.role!=="ADMIN_ROLE"){
+                        return null;
+                      }
+
+                      return  <th scope="col">{header.value}</th>
                     })}
                   </tr>
                 </thead>
@@ -39,7 +45,7 @@ const Table = ({
                                   {element.status ? "Activo" : "Inactivo"}
                                 </span>
                               </td>
-                            ) : header.property === "actions" ? (
+                            ) : header.property === "actions" && user.role==="ADMIN_ROLE" ? (
                               <td>
                                 <div className="row justify-content-around">
                                   <button

@@ -129,14 +129,14 @@ const Usuarios = ({ user }) => {
         </div>
       </div>
       <div className="row d-flex justify-content-around justify-content-md-end my-3">
-          <button
+          {user.role ==="ADMIN_ROLE" ? <button
             className="btn btn-primary mr-2"
             data-toggle="modal"
             data-target="#addEmpleadoModal"
             onClick={() => setShowModal(true)}
           >
             Agregar usuario
-          </button>
+          </button> : null}
         <ExportDataToExcel  data={filteredUsers} headers={EmployeeHeaders} fileName={"Empleados "} />
       </div>
       {!users ? (
@@ -152,6 +152,8 @@ const Usuarios = ({ user }) => {
           onSelectRow={setUserSelected}
           onDeleteRow={deleteEmployee}
           setShowEditModal={setShowEditModal}
+          user={user}
+          
         />
       )}
 

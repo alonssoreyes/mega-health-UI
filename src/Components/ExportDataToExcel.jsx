@@ -10,7 +10,7 @@ const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 const ExportDataToExcel = ({ headers, data, fileName}) => {
 
     return(
-        <ExcelFile element={<button className="btn btn-secondary mr-3" style={{background:'#117c43'}}><i className="mdi mdi-file-excel "></i> </button>} filename={`${fileName} ${moment(new Date()).format("YYYY/MM/DD hh:mm")}`}>
+        <ExcelFile element={<button className="btn btn-secondary mr-3" style={{background:'#117c43'}}><i className="mdi mdi-file-excel " title="Exportar Datos"></i> </button>} filename={`${fileName} ${moment(new Date()).format("YYYY/MM/DD hh:mm")}`}>
             <ExcelSheet data={data} name="Empleados">
             <ExcelColumn label="Nombre" value="name"/>
             <ExcelColumn label="Apellidos" value="lastName"/>
