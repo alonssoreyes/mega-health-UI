@@ -19,6 +19,10 @@
         "value":"Email"
     },
     {
+        "property": "department",
+        "value":"Departamento"
+    },
+    {
         "property":"role",
         "value":"Role"
     },
@@ -26,6 +30,7 @@
         "property":"status",
         "value":"Estado"
     },
+    
     {
         "property": "actions",
         "value":"Acciones"

@@ -45,7 +45,9 @@ const EditUsuarioModal = ({onSuccess,getUsers, data , setUserSelected}) => {
     formData.append('email',email);
     formData.append('alias',alias);
     formData.append('image', ev.target.image.files[0]);
-    formData.append('role',ev.target.role.value)
+    formData.append('role',ev.target.role.value);
+    formData.append('department',ev.target.department.value);
+
     try{
         const response = await axios.put(`/api/usuario/${data.uid}`, formData);
         if(response){
@@ -175,6 +177,30 @@ const EditUsuarioModal = ({onSuccess,getUsers, data , setUserSelected}) => {
                         </option>
                         <option value="ADMIN_ROLE">Administrador</option>
                         <option value="USER_ROLE">Usuario</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <label htmlFor="exampleInputEmail1">Departamento al que pertenece</label>
+                      <select
+                        name="department"
+                        id="department"
+                        className="form-control"
+                      >
+                        <option value="Recursos Humanos">
+                          Recursos Humanos
+                        </option>
+                        <option value="TI">TI</option>
+                        <option value="Mercadotecnia">Mercadoctenia</option>
+                        <option value="Almacen">Almacen</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Compras">Compras</option>
+                        <option value="Dirección">Dirección</option>
+                        <option value="Finanzas">Finanzas</option>
+                        <option value="Diseño">Diseño</option>
+                        <option value="Externo Auditor">Externo Auditor</option>
+
                       </select>
                     </div>
                   </div>

@@ -29,11 +29,12 @@ const AddUsuarioModal = ({ onSuccess, getUsers }) => {
     let name = ev.target.name.value;
     let lastName = ev.target.lastName.value;
     const email = ev.target.email.value;
-    let password ="";
+    const department = ev.target.department.value;
+    let password = "";
     let confirmPassword = "";
-    if(ev.target.password){
-       password = ev.target.password.value;
-       confirmPassword = ev.target.confirmPassword.value;
+    if (ev.target.password) {
+      password = ev.target.password.value;
+      confirmPassword = ev.target.confirmPassword.value;
     }
     const image = ev.target.image.files[0];
 
@@ -57,14 +58,14 @@ const AddUsuarioModal = ({ onSuccess, getUsers }) => {
     alias = capitalize(alias);
 
     const formData = new FormData();
-    formData.append('name',name);
-    formData.append('lastName', lastName);
-    formData.append('email',email);
-    formData.append('password',password);
-    formData.append('alias',alias);
-    formData.append('image', ev.target.image.files[0]);
-    formData.append('role',ev.target.role.value)
-
+    formData.append("name", name);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("alias", alias);
+    formData.append("department", department);
+    formData.append("image", ev.target.image.files[0]);
+    formData.append("role", ev.target.role.value);
 
     //Request
     try {
@@ -271,6 +272,30 @@ const AddUsuarioModal = ({ onSuccess, getUsers }) => {
                       </div>
                     </>
                   ) : null}
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <label htmlFor="exampleInputEmail1">Departamento al que pertenece</label>
+                      <select
+                        name="department"
+                        id="department"
+                        className="form-control"
+                      >
+                        <option value="Recursos Humanos">
+                          Recursos Humanos
+                        </option>
+                        <option value="TI">TI</option>
+                        <option value="Mercadotecnia">Mercadoctenia</option>
+                        <option value="Almacen">Almacen</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Compras">Compras</option>
+                        <option value="Dirección">Dirección</option>
+                        <option value="Finanzas">Finanzas</option>
+                        <option value="Diseño">Diseño</option>
+                        <option value="Externo Auditor">Externo Auditor</option>
+
+                      </select>
+                    </div>
+                  </div>
                   <div className="col-md-12">
                     <div className="form-group">
                       <label htmlFor="exampleInputPassword1">Imagen</label>
