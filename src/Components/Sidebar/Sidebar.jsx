@@ -58,7 +58,7 @@ const Sidebar = () => {
                         <span class="link-title">Sucursales</span>
                         </Link>
                     </li>
-                    <li class={`nav-item ${url === "/sucursal" && 'active'}`}>
+                    <li class={`nav-item ${url === "/responsivas" && 'active'}`}>
                         <Link to="/responsivas" class="nav-link">
                         <i class="link-icon" data-feather="file-text"></i>
                         <span class="link-title">Responsivas</span>
