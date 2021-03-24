@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Login from "./Components/Login/Login.jsx";
 import Usuarios from "./Components/Usuarios";
-import Sucursal from "./Components/Sucursal";
+import Sucursales from "./Components/Sucursales";
 import Equipos from "./Components/Equipos";
 import Marca from "./Components/Marca";
 import TiposdeEquipo from "./Components/TiposdeEquipos";
@@ -91,7 +91,7 @@ function App() {
                         </li>
                       </ol>
                     </nav>
-                    <Usuarios />
+                    <Usuarios user={user}/>
                   </div>
                 </Layout>
               )}
@@ -121,7 +121,7 @@ function App() {
                     </nav>
                     <h1>Equipos</h1>
 
-                    <Equipos />
+                    <Equipos user={user}/>
                   </div>
                 </Layout>
               )}
@@ -145,12 +145,12 @@ function App() {
                           class="breadcrumb-item active"
                           aria-current="sucursal"
                         >
-                          Sucursal
+                          Sucursales
                         </li>
                       </ol>
                     </nav>
-                    <h1>Sucursal</h1>
-                    <Sucursal />
+                    <h1>Sucursales</h1>
+                    <Sucursales user={user}/>
                   </div>
                 </Layout>
               )}

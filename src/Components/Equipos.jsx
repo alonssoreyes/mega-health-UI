@@ -6,7 +6,7 @@ import axios from 'axios';
 import ExportEquipmentsToExcel from './ExportEquipmentsToExcel';
 import EditEquipoModal from './EditEquipoModal';
 import Swal from "sweetalert2";
-const Equipos = () => {
+const Equipos = ({user}) => {
   const [equipments, setEquipments] = useState(null);
     const [users,setUsers] = useState(null);
   const [showEditModal,setShowEditModal] = useState(false);
@@ -28,7 +28,6 @@ const Equipos = () => {
 
   const handleDelete = async(equipment_id) => { 
     const equipment  = equipments.filter(eq => eq._id===equipment_id)[0];
-    console.log(equipment);
     if(equipment.assigned_to_name != ""){
       Swal.fire('Equipo asignado','El equipo debe estar sin asignación','warning');
 
@@ -78,7 +77,7 @@ const Equipos = () => {
     <>
       <div className="row justify-content-lg-end justify-content-md-end my-2">
         <div className={"row d-flex justify-content-around justify-content-md-end my-3"}>
-          <button
+          {user.role === "ADMIN_ROLE" ? <button
             className="btn btn-primary mr-2"
             data-toggle="modal"
             data-target="#addEquipoModal"
@@ -86,11 +85,11 @@ const Equipos = () => {
           >
               
            Agregar equipo
-          </button>
+          </button> : null}
           <ExportEquipmentsToExcel data={equipments} headers={headers} fileName="Equipos" />
         </div>
       </div>
-      <Table headers={headers} data={equipments} setShowEditModal={setShowEditModal} onSelectRow={setEquipmentSelected} onDeleteRow={handleDelete}/>
+      <Table headers={headers} data={equipments} setShowEditModal={setShowEditModal} onSelectRow={setEquipmentSelected} onDeleteRow={handleDelete} user={user}/>
       {showModal &&  <AddEquipos users={users} onSuccess={setShowModal} getEquipments={getEquipments}/>}
 
       {showEditModal ? <EditEquipoModal onSuccess={setShowEditModal} data={equipmentSelected} setEquipmentSelected={setEquipmentSelected} users={users}  getEquipments={getEquipments}/> : null}
