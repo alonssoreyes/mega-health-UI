@@ -36,7 +36,7 @@ const Login = ({onLogin}) => {
   }
 
   return (
-    <div class="page-wrapper full-page vh-100">
+    <div class="page-wrapper full-page vh-100 box">
       <div class="page-content d-flex align-items-center justify-content-center">
         <div class="row w-100 mx-0  auth-page" style={{marginTop:'10%'}}>
           <div class="col-md-8 col-xl-6 mx-auto">
