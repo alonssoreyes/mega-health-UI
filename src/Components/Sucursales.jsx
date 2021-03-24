@@ -47,7 +47,7 @@ const Sucursales = ({user}) => {
           </button> :null}
         </div>
       </div>
-            <div className="row mt-4 d-flex justify-content-between">
+            <div className="row mt-4">
                 {sucursals && sucursals.map(sucursal => <Sucursal data={sucursal} onSelectSucursal={setSelectedSucursal} setShowEditModal={setShowEditModal} getSucursals={getSucursales} user={user}/>)}
             </div>
             {showEditModal ? <EditSucursalModal setShowEditModal={setShowEditModal} getSucursals={getSucursales} data={selectedSucursal} setSelectedSucursal={setSelectedSucursal}/> : null}

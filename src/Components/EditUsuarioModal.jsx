@@ -52,10 +52,10 @@ const EditUsuarioModal = ({onSuccess,getUsers, data , setUserSelected}) => {
             getUsers();
             
             ev.target.reset();
-            document.querySelector('#editEmpleadoModal').classList.remove('show');
-            document.querySelector('#editEmpleadoModal').removeAttribute('aria-modal');
-            document.querySelector('#editEmpleadoModal').setAttribute('aria-hidden',true);
-            document.querySelector('#editEmpleadoModal').style.display = 'none';
+            document.querySelector('#edit').classList.remove('show');
+            document.querySelector('#edit').removeAttribute('aria-modal');
+            document.querySelector('#edit').setAttribute('aria-hidden',true);
+            document.querySelector('#edit').style.display = 'none';
             document.getElementsByClassName('modal-backdrop')[0].remove();
             document.querySelector('body').classList.remove('modal-open');
             onSuccess(false)

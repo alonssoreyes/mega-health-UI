@@ -15,6 +15,39 @@ const Usuarios = ({ user }) => {
   const [userSelected, setUserSelected] = useState(null);
   const [showEditModal,setShowEditModal] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [filterStatus,setFilterStatus] = useState(null);
+  const [filterRole, setFilterRole] = useState(null);
+  const onSelectStatusChange = (e) => {
+    setFilterStatus(e.target.value)
+  }
+  const onSelectRoleChange = (e) => { 
+    setFilterRole(e.target.value);
+  }
+
+
+  const handleFilter= () => { 
+    let filteredUsers  = users;
+
+    if(filterStatus && filterStatus!=="0"){
+      const value = filterStatus==="active" ? true : false;
+      filteredUsers = filteredUsers.filter(item => item.status===value)
+    }
+
+    if(filterRole && filterRole!=="0"){
+      filteredUsers = filteredUsers.filter(item => item.role==filterRole);
+    }
+
+    setFilteredUsers(filteredUsers)
+
+  }
+
+  useEffect(()=>{
+    handleFilter();
+  },[filterStatus])
+  useEffect(()=>{
+    handleFilter();
+  },[filterRole])
+
   useEffect(() => {
     document.title = "Usuarios - Mega Health";
     getUsers();
@@ -56,45 +89,6 @@ const Usuarios = ({ user }) => {
       console.log(err);
     }
   };
-  const handleFilterChange = (ev) => {
-    const status = ev.target.value;
-    const input = ev.target.name;
-    let filteredEmployees = [];
-    switch(input){
-      case "filterEmployees":
-        if (status === "active") {
-          filteredEmployees = users.filter((user) => user.status === true);
-        }
-    
-        if (status === "inactive") {
-          filteredEmployees = users.filter((user) => user.status === false);
-        }
-        if (status === "0") {
-          filteredEmployees = users;
-        }
-        break;
-      
-      case "filterEmployeesByRole":
-        if (status === "ADMIN_ROLE") {
-          filteredEmployees = users.filter((user) => user.role === "ADMIN_ROLE");
-        }
-    
-        if (status === "AUDITOR_ROLE") {
-          filteredEmployees = users.filter((user) => user.role === "AUDITOR_ROLE");
-        }
-        if (status === "USER_ROLE") {
-          filteredEmployees = users.filter((user) => user.role === "USER_ROLE");
-
-        }
-        if (status === "0") {
-          filteredEmployees = users;
-
-        }
-        break;
-    }
-
-    setFilteredUsers(filteredEmployees);
-  };
 
 
   return (
@@ -104,18 +98,18 @@ const Usuarios = ({ user }) => {
       <h6 className="mt-4 mb-2">Filtrar por: </h6>
       <div className="row p-2">
         <div className="col-md-3 my-2">
-          <select name="filterEmployees" id="" onChange={handleFilterChange}>
+          <select name="filterEmployees" id="" onChange={onSelectStatusChange}>
             <option value="0" defaultValue>
               Status
             </option>
 
-            <option value="active">Activos</option>
+            <option value={"active"}>Activos</option>
 
-            <option value="inactive">Inactivos</option>
+            <option value={"inactive"}>Inactivos</option>
           </select>
         </div>
         <div className="col-md-3 my-2">
-          <select name="filterEmployeesByRole" id="" onChange={handleFilterChange}>
+          <select name="filterEmployeesByRole" id="" onChange={onSelectRoleChange}>
             <option value="0" defaultValue>
               Rol
             </option>
@@ -153,6 +147,7 @@ const Usuarios = ({ user }) => {
           onDeleteRow={deleteEmployee}
           setShowEditModal={setShowEditModal}
           user={user}
+          setUsers={setUsers}
           
         />
       )}
