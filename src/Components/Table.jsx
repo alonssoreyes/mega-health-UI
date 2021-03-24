@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import defaultUser from '../assets/images/default-userr.png';
+import Responsiva from './Responsiva';
+import { Link } from "react-router-dom";
 const Table = ({
   headers,
   data,
   onSelectRow,
   onDeleteRow,
   setShowEditModal,
-  user
+  user,
+  setUsers
 }) => {
   return (
     <div className="row">
@@ -65,6 +68,7 @@ const Table = ({
                                   >
                                     Inhabilitar
                                   </button>
+                                  
                                 </div>
                               </td>
                             ) : header.property === "role" ? (

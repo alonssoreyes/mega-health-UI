@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-const AddEquipos = function ({ users, onSuccess, getEquipments }) {
+const AddEquipos = function ({ users, onSuccess, getEquipments, sucursals }) {
   const handleEquipmentSubmit = async (ev) => {
     ev.preventDefault();
 
@@ -161,7 +161,7 @@ const AddEquipos = function ({ users, onSuccess, getEquipments }) {
                       name="department"
                       id="department"
                     >
-                      <option value="RH">Recursos Humanos</option>
+                      <option value="Recursos Humanos">Recursos Humanos</option>
                       <option value="TI">TI</option>
                       <option value="Mercadotecnia">Mercadoctenia</option>
                       <option value="Almacen">Almacen</option>
@@ -174,14 +174,9 @@ const AddEquipos = function ({ users, onSuccess, getEquipments }) {
                   </div>
                   <div class="form-group col-md-4">
                     <label for="sucursal"> Sucursal :</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="sucursal"
-                      id="sucursal"
-                      autocomplete="of"
-                      placeholder="Sucursal"
-                    ></input>
+                    <select name="sucursal" id="sucursal">
+                      {sucursals.map(sucursal => <option value={sucursal.name}>{sucursal.name}</option>)}
+                    </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="categoria"> Categoria :</label>
