@@ -39,8 +39,15 @@ const EditUsuarioModal = ({onSuccess,getUsers, data , setUserSelected}) => {
     alias = capitalize(alias);
 
     //Request
+    const formData = new FormData();
+    formData.append('name',name);
+    formData.append('lastName', lastName);
+    formData.append('email',email);
+    formData.append('alias',alias);
+    formData.append('image', ev.target.image.files[0]);
+    formData.append('role',ev.target.role.value)
     try{
-        const response = await axios.put(`/api/usuario/${data.uid}`, {name,lastName,email,alias,role: ev.target.role.value});
+        const response = await axios.put(`/api/usuario/${data.uid}`, formData);
         if(response){
             getUsers();
             
