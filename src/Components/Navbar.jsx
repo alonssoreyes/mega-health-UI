@@ -27,12 +27,6 @@ const Navbar = ({user, onLogout}) => {
                             </div>
                             <div class="dropdown-body">
                                 <ul class="profile-nav p-0 pt-3">
-                                    <li class="nav-item">
-                                        <a href="pages/general/profile.html" class="nav-link">
-                                            <i data-feather="user"></i>
-                                            <span>Perfil</span>
-                                        </a>
-                                    </li>
                                     <li class="nav-item" style={{cursor:'pointer'}}>
                                         <a onClick={async(e) => {
                                             e.preventDefault();

@@ -27,7 +27,7 @@ const Sucursal = ({
           const deleted = await axios.delete(`/api/sucursal/${sucursal_id}`);
           if (deleted) {
             Swal.fire(
-              "Inhabilitado",
+              "Eliminada!",
               "La sucursal a sido eliminada",
               "success"
             );
