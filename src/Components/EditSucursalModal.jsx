@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 
-const AddSucursal = function ({onSuccess, getSucursals}) {
+const EditSucursalModal = function ({onSuccess, getSucursals, data,setSelectedSucursal}) {
 
 
     const handleSubmit = async (ev)=>{ 
@@ -16,18 +16,18 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
         formData.append('image', ev.target.image.files[0]);
 
         try{
-            const response = await axios.post('/api/sucursales', formData);
+            const response = await axios.put(`/api/sucursal/${data._id}`, formData);
             if(response){
                 getSucursals();
                 ev.target.reset();
-                document.querySelector("#addSucursalModal").classList.remove("show");
+                document.querySelector("#edit").classList.remove("show");
                 document
-                  .querySelector("#addSucursalModal")
+                  .querySelector("#edit")
                   .removeAttribute("aria-modal");
                 document
-                  .querySelector("#addSucursalModal")
+                  .querySelector("#edit")
                   .setAttribute("aria-hidden", true);
-                document.querySelector("#addSucursalModal").style.display = "none";
+                document.querySelector("#edit").style.display = "none";
                 document.getElementsByClassName("modal-backdrop")[0].remove();
                 document.querySelector("body").classList.remove("modal-open");
                 onSuccess(false);
@@ -43,10 +43,14 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
 
     }
 
+    const handleInputChange = ev => { 
+        setSelectedSucursal({...data, [ev.target.name]:ev.target.value})
+    }
+
   return (
     <div
       className="modal fade"
-      id="addSucursalModal"
+      id="edit"
       tabIndex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -56,7 +60,7 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">
-              Agregar Equipo
+              Editar Sucursal
             </h5>
             <button
               type="button"
@@ -73,15 +77,16 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
               <form class="forms-sample row" onSubmit={handleSubmit}>
                     <div class="form-group col-md-6">
                         <label for="cnv">Nombre del CNV :</label>
-                        <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="CNV" />
+                        <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="CNV" value={data.name} onChange={handleInputChange} />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="correocnv">Corre de su CNV :</label>
-                        <input type="text" class="form-control" id="correo" name="correo" autocomplete="off" placeholder="Correo" />
+                        <input type="text" class="form-control" id="correo" name="correo" autocomplete="off" placeholder="Correo" value={data.correo} onChange={handleInputChange}/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="city">Ciudad :</label>
-                        <select class="form-control" name="city">
+                        <select class="form-control" name="city" onChange={handleInputChange}>
+                            <option value={data.city} selected hidden>{data.city}</option>
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Tijuana">Tijuana</option>
                             <option value="Mexicali">Mexicali</option>
@@ -161,15 +166,15 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
                     </div>
                     <div class="form-group col-md-6">
                         <label for="direccioncnv">Dirección :</label>
-                        <input type="text" class="form-control" id="direction" name={"direction"} autocomplete="off" placeholder="Dirección" />
+                        <input type="text" class="form-control" id="direction" name={"direction"} autocomplete="off" placeholder="Dirección" value={data.direction} onChange={handleInputChange}/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="direccioncnv">Telefono :</label>
-                        <input type="text" class="form-control" id="phone" name={"phone"} autocomplete="off" placeholder="Telefono Sucursal" />
+                        <input type="text" class="form-control" id="phone" name={"phone"} autocomplete="off" placeholder="Telefono Sucursal" value={data.phone} onChange={handleInputChange}/>
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="image">Imagen Sucursal</label>
-                        <input type="file" className="form-control" name="image"/>
+                        <input type="file" className="form-control" name="image" />
                     </div>
                     <div className="col-md-12 d-flex justify-content-end">
                     <button class="btn btn-light">Cancelar</button>
@@ -186,4 +191,4 @@ const AddSucursal = function ({onSuccess, getSucursals}) {
   );
 }
 
-export default AddSucursal;
+export default EditSucursalModal;
