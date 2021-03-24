@@ -3,7 +3,11 @@
     background-size: cover;
     background-position: center;
 }
-
+.box {
+    background-image: url('../../assets/images/inicio.jpeg') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
 
 @media only screen and (max-width:768px){
     .auth-left-wrapper{

@@ -12,7 +12,7 @@ const Navbar = ({user, onLogout}) => {
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown nav-profile">
                         <a class="nav-link dropdown-toggle mr-5" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src={`${process.env.REACT_APP_API_HOST || 'http://localhost:3001'}${user.imgPath}`} alt="userr" />
+                            <img src={`${process.env.REACT_APP_API_HOST || 'http://localhost:3001'}${user.imgPath}`} alt="Imagen usuario" />
                         </a>
                         <div class="dropdown-menu" aria-labelledby="profileDropdown">
                             <div class="dropdown-header d-flex flex-column align-items-center">
